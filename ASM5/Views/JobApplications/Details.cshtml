@@ -1,0 +1,55 @@
+﻿@model ASM5.Models.JobApplication
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>JobApplication</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.JobList) *@
+            Vacancies
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobList.Vacancies)
+        </dd>
+        <dt class="col-sm-2">
+            Salary
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobList.Salary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+        <dt class = "col-sm-2">
+            @* @Html.DisplayNameFor(model => model.JobList) *@
+            JobListID
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobList.Id)
+        </dd>
+        <dt class = "col-sm-2" style="display: none;">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10"style="display: none;">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+
+     @if (User.IsInRole("JobSeeker"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> <a>|</a>
+  }
+   
+    <a asp-action="Index">Back to List</a>
+</div>
